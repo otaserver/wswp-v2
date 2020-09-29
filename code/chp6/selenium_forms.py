@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-LOGIN_URL = 'http://example.webscraping.com/user/login'
+LOGIN_URL = 'http://example.webscraping.com/places/default/user/login?_next=/places/default/index'
 LOGIN_EMAIL = 'example@webscraping.com'
 LOGIN_PASSWORD = 'example'
 COUNTRY_URL = 'http://example.webscraping.com/places/default/edit/United-Kingdom-239'
@@ -13,8 +13,10 @@ COUNTRY_URL = 'http://example.webscraping.com/places/default/edit/United-Kingdom
 
 def get_driver():
     try:
-        return webdriver.PhantomJS()
+        # return webdriver.PhantomJS()   PhantomJS已经过时，官方不推荐使用。
+        return webdriver.Chrome()
     except Exception:
+        print ("exception,use firefox")
         return webdriver.Firefox()
 
 
